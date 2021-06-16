@@ -12,9 +12,7 @@ const App = () => {
   return (
     <div>
       <Header title={course}/>
-      <Content osa={part1} osia={exercises1}/>
-      <Content osa={part2} osia={exercises2}/>
-      <Content osa={part3} osia={exercises3}/>
+      <Content osa1={part1} osa2={part2} osa3={part3} osia1={exercises1} osia2={exercises2} osia3={exercises3}/>
       <Total osia={exercises1 + exercises2 + exercises3}/>
       
     </div>
@@ -31,7 +29,11 @@ const Header = (props) => {
 const Content = (props) => {
 
   return (
-    <p>{props.osa} {props.osia}</p>
+    <>
+      <Part osa={props.osa1} osia={props.osia1}/>
+      <Part osa={props.osa2} osia={props.osia2}/>
+      <Part osa={props.osa3} osia={props.osia3}/>
+    </>
   )
 }
 
@@ -41,5 +43,11 @@ const Total = (props) => {
     <p>Number of exercises {props.osia}</p>
   )
 }
- 
+
+const Part = (props) => {
+
+  return (
+    <p>{props.osa} {props.osia}</p>
+  )
+} 
 export default App;
